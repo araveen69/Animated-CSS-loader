@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Animated Loader Gallery</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0f545f;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding: 50px 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* Gallery container */
+.loader-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* Loader container with title */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.loader-container span {
+  font-size: 14px;
+}
+
+/* --- 1. Ball bouncing inside rectangle --- */
+.loader-rect {
+  width: 100px;
+  height: 50px;
+  background: #fff3;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.loader-rect .ball {
+  width: 20px;
+  height: 20px;
+  background: #e74c3c;
+  border-radius: 50%;
+  position: relative;
+  top: 0;
+  left: 0;
+  animation: bounce-rect 2s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
+}
+@keyframes bounce-rect {
+  0%   { top: 0; left: 0; }
+  25%  { top: 0; left: 80px; }
+  50%  { top: 40px; left: 80px; }
+  75%  { top: 40px; left: 0; }
+  100% { top: 0; left: 0; }
+}
+
+/* --- 2. Triangle moving around rectangle --- */
+.loader-triangle {
+  width: 100px;
+  height: 60px;
+  background: #fff3;
+  position: relative;
+  border-radius: 8px;
+}
+.loader-triangle .triangle {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 25px solid #3498db;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: move-triangle 2s linear infinite;
+}
+@keyframes move-triangle {
+  0%   { top: 0; left: 0; }
+  25%  { top: 0; left: 70px; }
+  50%  { top: 35px; left: 70px; }
+  75%  { top: 35px; left: 0; }
+  100% { top: 0; left: 0; }
+}
+
+/* --- 3. Hexagon moving around hexagon --- */
+.loader-hex {
+  width: 100px;
+  height: 86.6px;
+  background: #fff3;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  position: relative;
+  overflow: hidden;
+}
+.loader-hex .hex-inner {
+  width: 40px;
+  height: 34.6px;
+  background: #9b59b6;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  position: absolute;
+  animation: move-hex 3s linear infinite;
+}
+@keyframes move-hex {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(50px, 0); }
+  50%  { transform: translate(50px, 43px); }
+  75%  { transform: translate(0, 43px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* --- 4. Rectangle moving on top of hexagon --- */
+.loader-rect-on-hex {
+  width: 100px;
+  height: 86.9px;
+  background: #fff3;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  position: relative;
+  overflow: hidden;
+}
+.loader-rect-on-hex .rect-inner {
+  width: 40px;
+  height: 20px;
+  background: #e67e22;
+  position: absolute;
+  animation: move-rect-hex 3s linear infinite;
+}
+@keyframes move-rect-hex {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(60px, 0); }
+  50%  { transform: translate(60px, 66px); }
+  75%  { transform: translate(0, 66px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* --- 5. Square moving around a square --- */
+.loader-square {
+  width: 100px;
+  height: 100px;
+  background: #fff3;
+  position: relative;
+  overflow: hidden;
+}
+.loader-square .square-inner {
+  width: 30px;
+  height: 30px;
+  background: #1abc9c;
+  position: absolute;
+  animation: move-square 3s linear infinite;
+}
+@keyframes move-square {
+  0%   { top: 0; left: 0; }
+  25%  { top: 0; left: 70px; }
+  50%  { top: 70px; left: 70px; }
+  75%  { top: 70px; left: 0; }
+  100% { top: 0; left: 0; }
+}
+
+/* --- 6. Hexagon moving around hexagon --- */
+.loader-hex2 {
+  width: 100px;
+  height: 86.6px;
+  background: #fff3;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  position: relative;
+  overflow: hidden;
+}
+.loader-hex2 .hex-inner2 {
+  width: 40px;
+  height: 34.6px;
+  background: #8e44ad;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  position: absolute;
+  animation: move-hex2 3s linear infinite;
+}
+@keyframes move-hex2 {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(50px, 0); }
+  50%  { transform: translate(50px, 43px); }
+  75%  { transform: translate(0, 43px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* --- 7. Triangle moving around triangle --- */
+.loader-triangle-triangle {
+  width: 100px;
+  height: 86.6px;
+  background: #fff3;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  position: relative;
+  overflow: hidden;
+}
+.loader-triangle-triangle .triangle-inner {
+  width: 20px;
+  height: 20px;
+  background: #f1c40f;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  position: absolute;
+  animation: move-triangle-triangle 2.5s linear infinite;
+}
+@keyframes move-triangle-triangle {
+  0%   { transform: translate(0, 0); }
+  33%  { transform: translate(80px, 0); }
+  66%  { transform: translate(40px, 60px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* --- 8. Triangle moving around pentagon --- */
+.loader-triangle-pentagon {
+  width: 100px;
+  height: 100px;
+  background: #fff3;
+  clip-path: polygon(50% 0%, 95% 35%, 79% 90%, 21% 90%, 5% 35%);
+  position: relative;
+  overflow: hidden;
+}
+.loader-triangle-pentagon .triangle-inner-penta {
+  width: 20px;
+  height: 20px;
+  background: #e74c3c;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  position: absolute;
+  animation: move-triangle-pentagon 3s linear infinite;
+}
+@keyframes move-triangle-pentagon {
+  0%   { transform: translate(0, 20px); }
+  20%  { transform: translate(50px, 0); }
+  40%  { transform: translate(85px, 35px); }
+  60%  { transform: translate(65px, 80px); }
+  80%  { transform: translate(20px, 80px); }
+  100% { transform: translate(0, 20px); }
+}
+
+/* --- 9. Circle moving around circle --- */
+.loader-circle {
+  width: 100px;
+  height: 100px;
+  background: #fff3;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+.loader-circle .circle-inner {
+  width: 20px;
+  height: 20px;
+  background: #f39c12;
+  border-radius: 50%;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  animation: orbit 2s linear infinite;
+}
+@keyframes orbit {
+  0%   { transform: rotate(0deg) translateX(40px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
+}
+
+
+</style>
+</head>
+<body>
+
+<h1>Animated Loader Gallery</h1>
+
+<div class="loader-gallery">
+
+  <div class="loader-container">
+    <div class="loader-rect">
+      <div class="ball"></div>
+    </div>
+    <span>Ball in Rectangle</span>
+  </div>
+
+  <div class="loader-container">
+    <div class="loader-triangle">
+      <div class="triangle"></div>
+    </div>
+    <span>Triangle around Rectangle</span>
+  </div>
+
+  <div class="loader-container">
+    <div class="loader-hex">
+      <div class="hex-inner"></div>
+    </div>
+    <span>Hexagon around Hexagon</span>
+  </div>
+
+  <div class="loader-container">
+    <div class="loader-rect-on-hex">
+      <div class="rect-inner"></div>
+    </div>
+    <span>Rectangle on Hexagon</span>
+  </div>
+
+  <div class="loader-container">
+    <div class="loader-square">
+      <div class="square-inner"></div>
+    </div>
+    <span>Square around Square</span>
+  </div>
+
+  <div class="loader-container">
+    <div class="loader-hex2">
+      <div class="hex-inner2"></div>
+    </div>
+    <span>Hexagon around Hexagon</span>
+  </div>
+
+  <div class="loader-container">
+    <div class="loader-triangle-triangle">
+      <div class="triangle-inner"></div>
+    </div>
+    <span>Triangle around Triangle</span>
+  </div>
+
+  <div class="loader-container">
+    <div class="loader-triangle-pentagon">
+      <div class="triangle-inner-penta"></div>
+    </div>
+    <span>Triangle around Pentagon</span>
+  </div>
+
+  <div class="loader-container">
+    <div class="loader-circle">
+      <div class="circle-inner"></div>
+    </div>
+    <span>Circle around Circle</span>
+  </div>
+
+
+
+</div>
+
+</body>
+</html>
